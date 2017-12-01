@@ -1,56 +1,57 @@
 <template>
-  <div style="display: inline-block; font-size: 14px;">
-    <modal v-if="showModal" @close="showModal = false">
+  <div class="vcom-dropdown-option__container">
+    <Modal v-if="showModal" @close="hideModal">
       <h4 slot="header" v-text="translations.deleteComments" />
       <div slot="body" v-text="translations.areYouSureDeleteComment" />
       <div slot="footer">
         <div
           class="btn b3-btn-black cancel-btn"
-          @click="showModal = false"
+          @click="hideModal"
           v-text="translations.cancel"
         />
         <div class="btn" @click="deleteComment" v-text="translations.delete" />
       </div>
-    </modal>
+    </Modal>
 
-
-    <div v-if="!editMode && type === 'sub'">
-      <i class="material-icons subcomment-option" @click="toggleMenu" v-if="!menuActive">keyboard_arrow_down</i>
-      <i class="material-icons subcomment-option" @click="toggleMenu" v-else>keyboard_arrow_up</i>
+    <div v-if="showArrowIcon">
+      <i
+        v-if="!menuActive"
+        key="arrow-menu-active"
+        :class="arrowClass"
+        @click="toggleMenu"
+      >
+        keyboard_arrow_down
+      </i>
+      <i v-else key="arrow-menu-active" :class="arrowClass" @click="toggleMenu">
+        keyboard_arrow_up
+      </i>
     </div>
-    <div class="comment-dropdown-option" v-if="!editMode && type === 'main'">
-      <i class="material-icons" @click="toggleMenu" v-if="!menuActive">keyboard_arrow_down</i>
-      <i class="material-icons" @click="toggleMenu" v-else>keyboard_arrow_up</i>
-    </div>
-
 
     <ul
-      :class="subCommentMenuClasses"
       v-if="menuActive"
+      :class="subCommentMenuClasses"
       v-on-clickaway="toggleAway"
     >
       <li @click="editComment">
         <span class="dropdown-event" v-text="translations.edit" />
       </li>
       <li @click="showDeleteModal">
-        <span class="dropdown-event dropdown-event__warning" v-text="translations.delete" />
+        <span class="dropdown-event--warning" v-text="translations.delete" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { mixin as clickaway } from 'vue-clickaway';
+import { mixin as VueClickaway } from 'vue-clickaway';
 import Modal from './Modal.vue';
 
 export default {
-  name: 'sub-comment-dropdown-option',
+  name: 'CommentDropdownOption',
   components: {
-    Modal
+    Modal,
   },
-  mixins: [
-    clickaway,
-  ],
+  mixins: [VueClickaway],
   props: {
     id: String,
     editMode: Boolean,
@@ -64,22 +65,33 @@ export default {
     };
   },
   computed: {
-    subCommentMenuClasses: function getSubCommentMenuClasses() {
+    showArrowIcon() {
+      return (!editMode && type === 'sub') || (!editMode && type === 'main');
+    },
+    arrowClass() {
       return {
-        'comment-dropdown-menu': true,
-        'comment-dropdown-menu__main': this.type === 'main',
-        'comment-dropdown-menu__sub': this.type === 'sub',
+        'material-icons': true,
+        'subcomment-option': !editMode && type === 'sub',
       };
-    }
+    },
+    subCommentMenuClasses() {
+      return {
+        'comment-dropdown-menu--main': this.type === 'main',
+        'comment-dropdown-menu--sub': this.type === 'sub',
+      };
+    },
   },
   methods: {
-    toggleMenu: function toggleMenu() {
+    hideModal() {
+      this.showModal = false;
+    },
+    toggleMenu() {
       this.menuActive = !this.menuActive;
     },
-    toggleAway: function toggleAway() {
+    toggleAway() {
       this.menuActive = false;
     },
-    deleteComment: function deleteComment() {
+    deleteComment() {
       this.showModal = false;
       const payload = {
         id: this.id,
@@ -87,14 +99,14 @@ export default {
       this.$store.dispatch('DELETE_COMMENT', payload);
       this.menuActive = false;
     },
-    editComment: function editComment() {
+    editComment() {
       const payload = {
         id: this.id,
       };
       this.$store.dispatch('ACTIVATE_EDIT_MODE', payload);
       this.menuActive = false;
     },
-    showDeleteModal: function showDeleteModal() {
+    showDeleteModal() {
       this.menuActive = false;
       this.showModal = true;
     },
@@ -102,12 +114,22 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.vcom-dropdown-option__container {
+  display: inline-block;
+  font-size: 14px;
+}
+
 .dropdown-event {
   cursor: pointer;
 }
 
-.comment-dropdown-menu {
+.dropdown-event--warning {
+  @extend .dropdown-event;
+  color: red;
+}
+
+@mixin comment-dropdown-menu() {
   position: absolute;
   width: 76px;
   z-index: 3;
@@ -117,21 +139,19 @@ export default {
   list-style-type: none;
   padding-top: 8px;
   padding-bottom: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.comment-dropdown-menu__sub {
+.comment-dropdown-menu--sub {
+  @include comment-dropdown-menu();
   transform: translate(-60px, 5px);
-  color: #2C66C4;
+  color: #2c66c4;
 }
 
-.comment-dropdown-menu__main {
+.comment-dropdown-menu--main {
+  @include comment-dropdown-menu();
   top: 24px;
   right: 16px;
-}
-
-.dropdown-event__warning {
-  color: red;
 }
 
 .comment-dropdown-menu li {
@@ -139,7 +159,7 @@ export default {
   margin-left: -27px;
 }
 
-.comment-dropdown-menu li:nth-child(n+2) {
+.comment-dropdown-menu li:nth-child(n + 2) {
   margin-top: 4px;
 }
 </style>
