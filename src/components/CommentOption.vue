@@ -1,5 +1,5 @@
 <template>
-  <div class="comment-option" v-if="$djangoContext.requestUser.isAuthenticated">
+  <div v-if="$djangoContext.requestUser.isAuthenticated" class="comment-option">
     <span
       v-show="!comment.editMode"
       class="reply-action"
