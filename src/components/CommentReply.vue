@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row" v-if="showTextarea">
+    <div v-if="showTextarea" class="row">
       <div class="col-xs-12">
         <B3Textarea
           :value="textValue"
@@ -12,13 +12,13 @@
         />
       </div>
     </div>
-    <div class="row" v-if="showCommentButton">
+    <div v-if="showCommentButton" class="row">
       <div class="col-xs-12">
         <div
+          tabindex="0"
           :class="commentButtonClass"
           @click="propagateAddComment"
           @keyup.enter="propagateAddComment"
-          tabindex="0"
         >
           <i
             v-if="mainReplyLoading"
@@ -35,7 +35,7 @@
 import B3Textarea from './Textarea.vue';
 
 export default {
-  name: 'CommentMainReply',
+  name: 'CommentReply',
   components: {
     B3Textarea,
   },
