@@ -2,12 +2,6 @@
   <div :class="this.titleClass" v-text="translations.title" />
 </template>
 
-<style scoped>
-div {
-  margin-top:10px;
-}
-</style>
-
 <script>
 export default {
   name: 'B3Title',
@@ -25,3 +19,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+div {
+  margin-top: 10px;
+}
+</style>
