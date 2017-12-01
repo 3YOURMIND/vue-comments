@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'component',
+  name: 'Button',
   props: {
     text: String,
     warning: Boolean,
