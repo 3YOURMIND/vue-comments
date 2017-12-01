@@ -83,15 +83,15 @@ export default {
 
 <style lang="scss" scoped>
 .btn-comment {
-  float:right;
+  float: right;
   margin-top: 0.5em;
 }
 
 .btn-loading {
-  cursor:default;
+  cursor: default;
 }
 
 .btn-loading i {
-  cursor:default;
+  cursor: default;
 }
 </style>
