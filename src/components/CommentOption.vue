@@ -1,21 +1,18 @@
 <template>
-  <div
-    class="comment-option"
-    v-if="$djangoContext.requestUser.isAuthenticated"
-  >
+  <div class="comment-option" v-if="$djangoContext.requestUser.isAuthenticated">
     <span
+      v-show="!comment.editMode"
       class="reply-action"
-      v-on:click="onReplyClick"
-      v-if="!comment.editMode"
+      @click="onReplyClick"
     >
       <span v-text="translations.reply" />
     </span>
     <CommentDropdownOption
+      v-if="comment.isOwner"
       :id="comment.id"
       :editMode="comment.editMode"
       :type="'main'"
       :translations="translations"
-      v-show="comment.isOwner"
     />
   </div>
 </template>
@@ -41,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$b3Blue: #2C66C4;
+$b3Blue: #2c66c4;
 
 .comment-option {
   color: $b3Blue;
