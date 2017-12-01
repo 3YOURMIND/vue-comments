@@ -2,16 +2,13 @@
   <div class="comment-info">
     <span class="username">
       <b v-text="comment.user.name" />
-      <span
-        v-if="comment.user.service"
-        v-html="serviceHtml"
-      />
+      <span v-if="comment.user.service" v-html="serviceHtmlRepresentation" />
     </span>
-    <span class="date" v-text="translations.createdDate(comment)" />
+    <span class="date" v-text="createdDateRepresentation" />
     <span
+      v-if="comment.editedPrettyDate"
       class="date"
-      v-show="comment.editedPrettyDate"
-      v-text="translations.editedDate(comment)"
+      v-text="editedDateRepresentation"
     />
   </div>
 </template>
@@ -24,11 +21,17 @@ export default {
     translations: Object,
   },
   computed: {
-    serviceHtml() {
+    serviceHtmlRepresentation() {
       const baseTranslation = this.translations.commentInfoUserServiceInformation(
         this.comment,
       );
       return `${baseTranslation} <i class="material-icons">verified_user</i>`;
+    },
+    createdDateRepresentation() {
+      return this.translations.createdDate(this.comment);
+    },
+    editedDateRepresentation() {
+      return this.translations.editedDate(this.comment);
     },
   },
 };
