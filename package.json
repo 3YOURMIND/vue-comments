@@ -1,0 +1,35 @@
+{
+  "name": "@3yourmind/vue-comments",
+  "version": "0.0.1-beta.0",
+  "description":
+    "A Vue.js based commenting system to use in every Vue.js application",
+  "main": "index.js",
+  "author": "Kevin Peters <kpe@3yourmind.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/3YOURMIND/vue-comments#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3YOURMIND/vue-comments.git"
+  },
+  "bugs": {
+    "url": "https://github.com/3YOURMIND/vue-comments/issues"
+  },
+  "keywords": ["vue", "plugin", "vuex", "chat", "comment"],
+  "scripts": {
+    "build": "./node_modules/poi/bin/cli.js build index.js",
+    "test": "npm run test"
+  },
+  "files": ["index.js", "dist"],
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "poi": "^9.5.5",
+    "sass-loader": "^6.0.6"
+  },
+  "dependencies": {
+    "vue-clickaway": "^2.1.0",
+    "vuex": "^3.0.1"
+  },
+  "engines": {
+    "node": ">= 4"
+  }
+}
