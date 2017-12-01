@@ -1,22 +1,22 @@
 <template>
   <div>
     <div
+      tabindex="0"
       :class="loadingButtonClass"
       @click="saveEditText"
       @keyup.enter="saveEditText"
-      tabindex="0"
     >
       <i
-        class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"
         v-if="comment.editLoading"
+        class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"
       />
       <span v-text="translations.save" />
     </div>
     <div
       class="btn btn-comment b3-btn-black cancel-btn"
+      tabindex="0"
       @click="cancelEditText"
       @keyup.enter="cancelEditText"
-      tabindex="0"
     >
       <span v-text="translations.cancel" />
     </div>
