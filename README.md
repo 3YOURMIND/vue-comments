@@ -1,8 +1,4 @@
-# vue-comments by
-
-<a href="https://www.3yourmind.com/">3YOURMIND
-
-</a>
+# vue-comments by [3YOURMIND](https://www.3yourmind.com/)
 
 > A Vue.js plugin to show comments related to an identifier. This identifier is
 > called `projectId` internally but since this component is written with a
