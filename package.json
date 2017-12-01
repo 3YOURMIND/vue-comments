@@ -1,9 +1,9 @@
 {
   "name": "@3yourmind/vue-comments",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.1",
   "description":
     "A Vue.js based commenting system to use in every Vue.js application",
-  "main": "index.js",
+  "main": "dist/VueComments.js",
   "author": "Kevin Peters <kpe@3yourmind.com>",
   "license": "MIT",
   "homepage": "https://github.com/3YOURMIND/vue-comments#readme",
@@ -19,7 +19,7 @@
     "build": "./node_modules/poi/bin/cli.js build index.js",
     "test": "npm run test"
   },
-  "files": ["index.js", "dist"],
+  "files": ["/dist"],
   "devDependencies": {
     "node-sass": "^4.7.2",
     "poi": "^9.5.5",
