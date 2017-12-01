@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="no-comments">
-      <span
-        class="no-comments-text"
-        v-text="translations.noCommentWarning"
-      />
+      <span class="no-comments-text" v-text="translations.noCommentWarning" />
     </div>
     <Divider />
   </div>
@@ -20,7 +17,7 @@ export default {
   },
   props: {
     translations: Object,
-  }
+  },
 };
 </script>
 
