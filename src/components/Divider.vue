@@ -2,6 +2,12 @@
   <div class="divider" />
 </template>
 
+<script>
+export default {
+  name: 'Divider',
+};
+</script>
+
 <style scoped>
 .divider {
   height: 1px;
@@ -11,9 +17,3 @@
   margin: 16px auto;
 }
 </style>
-
-<script>
-export default {
-  name: 'Divider',
-};
-</script>
