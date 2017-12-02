@@ -16,14 +16,19 @@
   },
   "keywords": ["vue", "plugin", "vuex", "chat", "comment"],
   "scripts": {
-    "build": "./node_modules/poi/bin/cli.js build index.js",
-    "test": "npm run test"
+    "build": "node ./node_modules/poi/bin/cli.js build index.js",
+    "test": "jest"
   },
   "files": ["/dist"],
   "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "jest": "^21.2.1",
+    "jest-serializer-vue": "^0.3.0",
     "node-sass": "^4.7.2",
     "poi": "^9.5.5",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "vue-jest": "^1.2.0",
+    "vue-test-utils": "^1.0.0-beta.6"
   },
   "dependencies": {
     "vue-clickaway": "^2.1.0",
@@ -31,5 +36,21 @@
   },
   "engines": {
     "node": ">= 4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": ["<rootDir>/node_modules/jest-serializer-vue"],
+    "mapCoverage": true
   }
 }
