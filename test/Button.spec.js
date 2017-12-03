@@ -38,6 +38,19 @@ describe('Button.vue', () => {
     expect(wrapper.find('div').text()).toBe('bar');
   });
 
+  it('test if button has default btn class', () => {
+    const wrapper = shallow(Button);
+    wrapper.setProps({
+      text: 'foo',
+      warning: false,
+      disabled: false,
+      black: false,
+      gray: false,
+      onClick: () => {},
+    });
+    expect(wrapper.find('div').hasClass('btn')).toBe(true);
+  });
+
   it('test if button is primary', () => {
     const wrapper = shallow(Button);
     wrapper.setProps({
@@ -58,5 +71,20 @@ describe('Button.vue', () => {
       onClick: () => {},
     });
     expect(wrapper.find('div').hasClass('btn-primary')).toBe(false);
+  });
+
+  it('test if button click event is propagated right', () => {
+    const mockCallback = jest.fn();
+    const wrapper = shallow(Button);
+    wrapper.setProps({
+      text: 'foo',
+      warning: false,
+      disabled: false,
+      black: false,
+      gray: false,
+      onClick: mockCallback,
+    });
+    wrapper.find('div').trigger('click');
+    expect(mockCallback).toHaveBeenCalled();
   });
 });
