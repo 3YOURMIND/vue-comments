@@ -5,6 +5,7 @@
 > dynamic mindset you can provide your own actions to deal with CRUD operations
 > on comments.
 
+<a href="https://travis-ci.org/3YOURMIND/vue-comments"><img src="https://travis-ci.org/3YOURMIND/vue-comments.svg?branch=master" /></a>
 <a href="./License.md"><img src="https://img.shields.io/github/license/3YOURMIND/vue-comments.svg" alt="badge of license" /></a>
 <a href="https://github.com/3YOURMIND/vue-comments/pulls"><img src="https://img.shields.io/badge/PR-welcome-green.svg" alt="badge of pull request welcome" /></a>
 <a href="https://www.3yourmind.com/career"><img src="https://img.shields.io/badge/3YOURMIND-Hiring-brightgreen.svg" alt="badge of hiring advertisement of 3yourmind" /></a>
