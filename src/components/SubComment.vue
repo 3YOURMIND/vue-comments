@@ -1,6 +1,6 @@
 <template>
-  <div class="subreply">
-    <div class="row" style="margin-bottom: 5px;">
+  <div class="vco-subcomment__container">
+    <div class="row vco-subcomment__top-bar">
       <div class="col-xs-12">
         <CommentInfo
           :comment="subComment"
@@ -62,15 +62,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$hover: #f8f8f8;
-
-.subreply {
+<style lang="scss">
+.vco-subcomment__container {
   padding: 2px 0 2px 4px;
   border-radius: 5px;
 }
 
-.subreply:hover {
-  background-color: $hover;
+.vco-subcomment__container:hover {
+  background-color: #f8f8f8;
+}
+
+.vco-subcomment__top-bar {
+  margin-bottom: 5px;
 }
 </style>

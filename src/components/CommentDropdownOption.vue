@@ -1,15 +1,19 @@
 <template>
-  <div class="vcom-dropdown-option__container">
+  <div class="vco-dropdown-option__container">
     <Modal v-if="showModal" @close="hideModal">
       <h4 slot="header" v-text="translations.deleteComments" />
       <div slot="body" v-text="translations.areYouSureDeleteComment" />
       <div slot="footer">
         <div
-          class="btn b3-btn-black cancel-btn"
+          class="vco-button--black"
           @click="hideModal"
           v-text="translations.cancel"
         />
-        <div class="btn" @click="deleteComment" v-text="translations.delete" />
+        <div
+          class="vco-button"
+          @click="deleteComment"
+          v-text="translations.delete"
+        />
       </div>
     </Modal>
 
@@ -33,10 +37,16 @@
       v-on-clickaway="toggleAway"
     >
       <li @click="editComment">
-        <span class="dropdown-event" v-text="translations.edit" />
+        <span
+          class="vco-dropdown-option__list-item"
+          v-text="translations.edit"
+        />
       </li>
       <li @click="showDeleteModal">
-        <span class="dropdown-event--warning" v-text="translations.delete" />
+        <span
+          class="vco-dropdown-option__list-item--warning"
+          v-text="translations.delete"
+        />
       </li>
     </ul>
   </div>
@@ -66,7 +76,10 @@ export default {
   },
   computed: {
     showArrowIcon() {
-      return (!this.editMode && this.type === 'sub') || (!this.editMode && this.type === 'main');
+      return (
+        (!this.editMode && this.type === 'sub') ||
+        (!this.editMode && this.type === 'main')
+      );
     },
     arrowClass() {
       return {
@@ -76,8 +89,8 @@ export default {
     },
     subCommentMenuClasses() {
       return {
-        'comment-dropdown-menu--main': this.type === 'main',
-        'comment-dropdown-menu--sub': this.type === 'sub',
+        'vco-dropdown-option__menu--main': this.type === 'main',
+        'vco-dropdown-option__menu--sub': this.type === 'sub',
       };
     },
   },
@@ -114,22 +127,62 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.vcom-dropdown-option__container {
+<style lang="scss">
+@mixin button-base() {
+  box-sizing: border-box;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+  height: 2.14em;
+  box-shadow: none;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 0.214em 0.857em;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.vco-button {
+  @include button-base();
+  background-color: #2c66c4;
+  border: 2px solid transparent;
+  color: white;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.vco-button--black {
+  @include button-base();
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.vco-dropdown-option__container {
   display: inline-block;
   font-size: 14px;
 }
 
-.dropdown-event {
+.vco-dropdown-option__list-item {
   cursor: pointer;
 }
 
-.dropdown-event--warning {
-  @extend .dropdown-event;
+.vco-dropdown-option__list-item--warning {
+  @extend .vco-dropdown-option__list-item;
   color: red;
 }
 
-@mixin comment-dropdown-menu() {
+.vco-dropdown-option__menu {
   position: absolute;
   width: 76px;
   z-index: 3;
@@ -140,26 +193,26 @@ export default {
   padding-top: 8px;
   padding-bottom: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  li {
+    padding: 0;
+    margin-left: -27px;
+  }
+
+  li:nth-child(n + 2) {
+    margin-top: 4px;
+  }
 }
 
-.comment-dropdown-menu--sub {
-  @include comment-dropdown-menu();
+.vco-dropdown-option__menu--sub {
+  @extend .vco-dropdown-option__menu;
   transform: translate(-60px, 5px);
   color: #2c66c4;
 }
 
-.comment-dropdown-menu--main {
-  @include comment-dropdown-menu();
+.vco-dropdown-option__menu--main {
+  @extend .vco-dropdown-option__menu;
   top: 24px;
   right: 16px;
-}
-
-.comment-dropdown-menu li {
-  padding: 0;
-  margin-left: -27px;
-}
-
-.comment-dropdown-menu li:nth-child(n + 2) {
-  margin-top: 4px;
 }
 </style>
