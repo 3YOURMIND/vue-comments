@@ -66,12 +66,12 @@ export default {
   },
   computed: {
     showArrowIcon() {
-      return (!editMode && type === 'sub') || (!editMode && type === 'main');
+      return (!this.editMode && this.type === 'sub') || (!this.editMode && this.type === 'main');
     },
     arrowClass() {
       return {
         'material-icons': true,
-        'subcomment-option': !editMode && type === 'sub',
+        'subcomment-option': !this.editMode && this.type === 'sub',
       };
     },
     subCommentMenuClasses() {
