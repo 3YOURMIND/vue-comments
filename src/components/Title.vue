@@ -4,24 +4,24 @@
 
 <script>
 export default {
-  name: 'B3Title',
+  name: 'VcoTitle',
   props: {
     showLine: Boolean,
     translations: Object,
   },
   computed: {
-    titleClass: function getTitleClass() {
+    titleClass() {
       return {
-        'b3-heading-title': true,
-        line: this.showLine,
+        'vco-title__heading': true,
+        'vco-title__line': this.showLine,
       };
     },
   },
 };
 </script>
 
-<style scoped>
-div {
+<style>
+.vco-title__heading {
   margin-top: 10px;
 }
 </style>
