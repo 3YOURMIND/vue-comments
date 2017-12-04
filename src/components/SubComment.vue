@@ -66,10 +66,10 @@ export default {
 .vco-subcomment__container {
   padding: 2px 0 2px 4px;
   border-radius: 5px;
-}
 
-.vco-subcomment__container:hover {
-  background-color: #f8f8f8;
+  &:hover {
+    background-color: #f8f8f8;
+  }
 }
 
 .vco-subcomment__top-bar {

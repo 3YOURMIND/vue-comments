@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="no-comments">
-      <span class="no-comments-text" v-text="translations.noCommentWarning" />
+    <div class="vco-no-content__text-container">
+      <span
+        class="vco-no-content__text"
+        v-text="translations.noCommentWarning"
+      />
     </div>
     <Divider />
   </div>
@@ -21,17 +24,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$grey: #a2a2a2;
-$defaultPlaceholderHeight: 38px;
-
-.no-comments {
-  height: $defaultPlaceholderHeight;
+<style lang="scss">
+.vco-no-content__text-container {
+  height: 38px;
   text-align: center;
 }
 
-.no-comments-text {
-  color: $grey;
-  line-height: $defaultPlaceholderHeight;
+.vco-no-content__text {
+  color: #a2a2a2;
+  line-height: 38px;
 }
 </style>

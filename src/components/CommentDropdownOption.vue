@@ -128,45 +128,7 @@ export default {
 </script>
 
 <style lang="scss">
-@mixin button-base() {
-  box-sizing: border-box;
-  line-height: 1.5;
-  text-transform: uppercase;
-  text-align: center;
-  display: inline-block;
-  cursor: pointer;
-  transition: all 0.2s ease 0s;
-  height: 2.14em;
-  box-shadow: none;
-  font-size: 14px;
-  white-space: nowrap;
-  padding: 0.214em 0.857em;
-  text-decoration: none;
-  text-shadow: none;
-}
-
-.vco-button {
-  @include button-base();
-  background-color: #2c66c4;
-  border: 2px solid transparent;
-  color: white;
-
-  &:hover {
-    opacity: 0.9;
-  }
-}
-
-.vco-button--black {
-  @include button-base();
-  background-color: white;
-  border: 2px solid black;
-  color: black;
-
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-}
+@import '../styles/buttons.scss';
 
 .vco-dropdown-option__container {
   display: inline-block;

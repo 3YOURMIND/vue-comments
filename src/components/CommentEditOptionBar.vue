@@ -1,24 +1,20 @@
 <template>
-  <div>
+  <div class="vco-comment-edit-option-bar__container">
+    <div
+      class="vco-button--black"
+      tabindex="0"
+      @click="cancelEditText"
+      @keyup.enter="cancelEditText"
+    >
+      <span v-text="translations.cancel" />
+    </div>
     <div
       tabindex="0"
       :class="loadingButtonClass"
       @click="saveEditText"
       @keyup.enter="saveEditText"
     >
-      <i
-        v-if="comment.editLoading"
-        class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"
-      />
       <span v-text="translations.save" />
-    </div>
-    <div
-      class="btn btn-comment b3-btn-black cancel-btn"
-      tabindex="0"
-      @click="cancelEditText"
-      @keyup.enter="cancelEditText"
-    >
-      <span v-text="translations.cancel" />
     </div>
   </div>
 </template>
@@ -33,10 +29,8 @@ export default {
   computed: {
     loadingButtonClass() {
       return {
-        btn: true,
-        'btn-comment': true,
-        'btn-fake-disabled': this.comment.editLoading,
-        'btn-loading': this.comment.editLoading,
+        'vco-button': true,
+        'vco-button--disabled': this.comment.editLoading,
       };
     },
   },
@@ -51,13 +45,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.btn-comment {
-  float:right;
-  margin-top: 0.5em;
-}
+<style lang="scss">
+@import '../styles/buttons.scss';
 
-.cancel-btn {
-  margin-right: 0.5em;
+.vco-comment-edit-option-bar__container {
+  float: right;
+  margin-top: 7px;
 }
 </style>

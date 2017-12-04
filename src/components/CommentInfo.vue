@@ -1,13 +1,13 @@
 <template>
-  <div class="comment-info">
-    <span class="username">
+  <div class="vco-comment-info__container">
+    <span class="vco-comment-info__username">
       <b v-text="comment.user.name" />
       <span v-if="comment.user.service" v-html="serviceHtmlRepresentation" />
     </span>
-    <span class="date" v-text="createdDateRepresentation" />
+    <span class="vco-comment-info__date" v-text="createdDateRepresentation" />
     <span
       v-if="comment.editedPrettyDate"
-      class="date"
+      class="vco-comment-info__date"
       v-text="editedDateRepresentation"
     />
   </div>
@@ -25,7 +25,7 @@ export default {
       const baseTranslation = this.translations.commentInfoUserServiceInformation(
         this.comment,
       );
-      return `${baseTranslation} <i class="material-icons">verified_user</i>`;
+      return `${baseTranslation} `;
     },
     createdDateRepresentation() {
       return this.translations.createdDate(this.comment);
@@ -37,21 +37,17 @@ export default {
 };
 </script>
 
-<style scoped>
-.material-icons {
-  cursor: text;
-}
-
-.comment-info {
+<style lang="scss">
+.vco-comment-info__container {
   display: inline-block;
   font-size: 10px;
 }
 
-.username {
+.vco-comment-info__username {
   color: #2c66c4;
 }
 
-.date {
+.vco-comment-info__date {
   color: #a2a2a2;
   margin-left: 0.5em;
 }

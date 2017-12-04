@@ -1,8 +1,11 @@
 <template>
-  <div v-if="$djangoContext.requestUser.isAuthenticated" class="comment-option">
+  <div
+    v-if="$djangoContext.requestUser.isAuthenticated"
+    class="vco-comment-option__container"
+  >
     <span
       v-show="!comment.editMode"
-      class="reply-action"
+      class="vco-comment-option__reply-text"
       @click="onReplyClick"
     >
       <span v-text="translations.reply" />
@@ -37,16 +40,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$b3Blue: #2c66c4;
-
-.comment-option {
-  color: $b3Blue;
+<style lang="scss">
+.vco-comment-option__container {
+  color: #2c66c4;
   display: inline-block;
   float: right;
 }
 
-.reply-action {
+.vco-comment-option__reply-text {
   cursor: pointer;
   margin-left: 0.5em;
 }
