@@ -7,14 +7,14 @@
 </template>
 
 <style scoped>
-.btn {
+.vco-button {
   width: 100%;
 }
 </style>
 
 <script>
 export default {
-  name: 'Button',
+  name: 'VcoButton',
   props: {
     text: String,
     warning: Boolean,
@@ -26,12 +26,12 @@ export default {
   computed: {
     classIdentifier() {
       return {
-        btn: true,
-        'btn-warning': this.warning,
-        'btn-fake-disabled': this.disabled,
-        'b3-btn-black': this.black,
-        'b3-btn-gray': this.gray,
-        'btn-primary':
+        'vco-button': true,
+        'vco-button--warning': this.warning,
+        'vco-button--fake-disabled': this.disabled,
+        'vco-button--black': this.black,
+        'vco-button--gray': this.gray,
+        'vco-button--primary':
           !this.warning && !this.disabled && !this.black && !this.gray,
       };
     },

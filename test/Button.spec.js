@@ -48,7 +48,7 @@ describe('Button.vue', () => {
       gray: false,
       onClick: () => {},
     });
-    expect(wrapper.find('div').hasClass('btn')).toBe(true);
+    expect(wrapper.find('div').hasClass('vco-button')).toBe(true);
   });
 
   it('test if button is primary', () => {
@@ -61,7 +61,7 @@ describe('Button.vue', () => {
       gray: false,
       onClick: () => {},
     });
-    expect(wrapper.find('div').hasClass('btn-primary')).toBe(true);
+    expect(wrapper.find('div').hasClass('vco-button--primary')).toBe(true);
     wrapper.setProps({
       text: 'foo',
       warning: true,
@@ -70,7 +70,7 @@ describe('Button.vue', () => {
       gray: false,
       onClick: () => {},
     });
-    expect(wrapper.find('div').hasClass('btn-primary')).toBe(false);
+    expect(wrapper.find('div').hasClass('vco-button--primary')).toBe(false);
   });
 
   it('test if button click event is propagated right', () => {
