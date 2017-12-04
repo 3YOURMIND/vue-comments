@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $borderColor: #ddd;
 $placeholderColor: #a2a2a2;
 

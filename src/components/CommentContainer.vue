@@ -42,7 +42,7 @@
             @comment-edit-option-bar-save-edit-text="saveEditText(comment)"
             @comment-edit-option-bar-cancel-edit-text="cancelEditText(comment)"
           />
-          <div class="row sub-comments" v-if="comment.subComments.length > 0 || comment.textarea.show">
+          <div class="row vco-comment-container__sub-comments" v-if="comment.subComments.length > 0 || comment.textarea.show">
             <div class="col-xs-12">
               <SubComment
                 v-for="subComment in comment.subComments"
@@ -135,7 +135,9 @@ export default {
         const result = [];
         parentComments.forEach((parentComment) => {
           const copy = Object.assign({}, parentComment);
-          copy.subComments = mappedComments.filter(x => x.parent === parentComment.id);
+          copy.subComments = mappedComments.filter(
+            x => x.parent === parentComment.id,
+          );
           result.push(copy);
         });
         return result;
@@ -146,30 +148,19 @@ export default {
       mainReplyLoading(state) {
         return state.comments.mainReplyLoading;
       },
-      getCommentButtonClasses(state) {
-        return this.getLoadingButtonClass(state.comments.mainReplyLoading);
-      },
     }),
   },
   methods: {
-    getLoadingButtonClass(condition) {
-      return {
-        btn: true,
-        'btn-comment': true,
-        'btn-fake-disabled': condition,
-        'btn-loading': condition,
-      };
-    },
     openSubReplyTextarea({ id }) {
       const payload = {
-        id
+        id,
       };
       this.$store.dispatch('SHOW_SUBREPLY_TEXTAREA', payload);
     },
     updateSubMessage(e, parentComment) {
       const payload = {
         text: e.target.value,
-        id: parentComment.id
+        id: parentComment.id,
       };
       this.$store.dispatch('UPDATE_SUBREPLY_TEXT', payload);
     },
@@ -216,7 +207,7 @@ export default {
         text: comment.editText,
       };
       this.$store.dispatch('SAVE_EDIT_TEXT', payload);
-    }
+    },
   },
   created() {
     const newStore = store(this.httpInterfaceActions);
@@ -230,41 +221,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$hover: #f8f8f8;
-$grey: #a2a2a2;
-$b3Blue: #2C66C4;
-
-.btn-loading {
-  cursor:default;
-}
-
-.btn-loading i {
-  cursor:default;
-}
-
-.sub-comments .subreply:nth-child(n+2) {
+<style lang="scss">
+.vco-comment-container__sub-comments
+  .vco-subcomment__container:nth-child(n + 2) {
   margin-top: 0.75em;
 }
 
-.reply-icon {
-  color: $grey;
-  position: absolute;
-  bottom: 0.5em;
-  right: 1.5em;
-}
-
-.sub-comments {
-  border-left: 2px solid $b3Blue;
+.vco-comment-container__sub-comments {
+  border-left: 2px solid #2c66c4;
   margin: 0.5em 0 0 0.5em;
-}
-
-.btn-comment {
-  float:right;
-  margin-top: 0.5em;
-}
-
-.cancel-btn {
-  margin-right: 0.5em;
 }
 </style>

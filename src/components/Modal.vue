@@ -1,20 +1,20 @@
 <template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
+  <transition name="vco-modal">
+    <div class="vco-modal__mask">
+      <div class="vco-modal__wrapper">
+        <div class="vco-modal__container">
+          <div class="vco-modal__header">
             <slot name="header">default header</slot>
           </div>
 
-          <div class="modal-body">
+          <div class="vco-modal__body">
             <slot name="body">default body</slot>
           </div>
 
-          <div class="modal-footer">
+          <div class="vco-modal__footer">
             <slot name="footer">
               default footer
-              <button class="modal-default-button" @click="closeModal">
+              <button class="vco-modal__default-button" @click="closeModal">
                 OK
               </button>
             </slot>
@@ -36,8 +36,8 @@ export default {
 };
 </script>
 
-<style scoped>
-.modal-mask {
+<style lang="scss">
+.vco-modal__mask {
   position: fixed;
   color: #555;
   z-index: 9998;
@@ -50,12 +50,24 @@ export default {
   transition: opacity .3s ease;
 }
 
-.modal-wrapper {
+.vco-modal__header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857px;
+}
+
+.vco-modal__footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+
+.vco-modal__wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.vco-modal__container {
   width: 500px;
   margin: 0px auto;
   padding: 20px 30px;
@@ -66,24 +78,24 @@ export default {
   transition: all .3s ease;
 }
 
-.modal-body {
+.vco-modal__body {
   margin: 20px 0;
 }
 
-.modal-default-button {
+.vco-modal__default-button {
   float: right;
 }
 
-.modal-enter {
+.vco-modal-enter {
   opacity: 0;
 }
 
-.modal-leave-active {
+.vco-modal-leave-active {
   opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.vco-modal-enter .vco-modal__container,
+.vco-modal-leave-active .vco-modal__container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

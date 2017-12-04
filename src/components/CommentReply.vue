@@ -14,17 +14,15 @@
     </div>
     <div v-if="showCommentButton" class="row">
       <div class="col-xs-12">
-        <div
-          tabindex="0"
-          :class="commentButtonClass"
-          @click="propagateAddComment"
-          @keyup.enter="propagateAddComment"
-        >
-          <i
-            v-if="mainReplyLoading"
-            class="fa fa-circle-o-notch fa-spin fa-1x fa-fw"
-          />
-          <span v-text="translations.comment" />
+        <div class="vco-comment-reply__button-container">
+          <div
+            tabindex="0"
+            :class="commentButtonClass"
+            @click="propagateAddComment"
+            @keyup.enter="propagateAddComment"
+          >
+            <span v-text="translations.comment" />
+          </div>
         </div>
       </div>
     </div>
@@ -63,10 +61,8 @@ export default {
   computed: {
     commentButtonClass() {
       return {
-        btn: true,
-        'btn-comment': true,
-        'btn-fake-disabled': this.mainReplyLoading,
-        'btn-loading': this.mainReplyLoading,
+        'vco-button': true,
+        'vco-button--disabled': this.mainReplyLoading,
       };
     },
   },
@@ -81,17 +77,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.btn-comment {
+<style lang="scss">
+@import '../styles/buttons.scss';
+
+.vco-comment-reply__button-container {
   float: right;
-  margin-top: 0.5em;
-}
-
-.btn-loading {
-  cursor: default;
-}
-
-.btn-loading i {
-  cursor: default;
+  margin-top: 7px;
 }
 </style>

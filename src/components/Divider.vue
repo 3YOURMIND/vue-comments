@@ -1,5 +1,5 @@
 <template>
-  <div class="divider" />
+  <div class="vco-divider__line" />
 </template>
 
 <script>
@@ -8,8 +8,8 @@ export default {
 };
 </script>
 
-<style scoped>
-.divider {
+<style lang="scss">
+.vco-divider__line {
   height: 1px;
   background-color: #ddd;
   position: relative;

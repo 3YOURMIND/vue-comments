@@ -6,7 +6,7 @@
   />
 </template>
 
-<style scoped>
+<style>
 .vco-button {
   width: 100%;
 }
