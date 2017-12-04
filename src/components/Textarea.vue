@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Textarea',
+  name: 'VcoTextarea',
   props: {
     type: String,
     value: String,
@@ -23,9 +23,9 @@ export default {
   computed: {
     classInstance() {
       return {
-        'subcomment-textarea-edit': this.type === 'subcommentEdit',
-        'subreply-textarea': this.type === 'subcommentReply',
-        'main-reply-textarea': !this.type,
+        'vco-textarea--default': !this.type,
+        'vco-textarea--edit': this.type === 'subcommentEdit',
+        'vco-textarea--subreply': this.type === 'subcommentReply',
       };
     },
   },
@@ -46,7 +46,7 @@ export default {
 $borderColor: #ddd;
 $placeholderColor: #a2a2a2;
 
-textarea {
+.vco-textarea {
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -57,15 +57,16 @@ textarea {
   resize: none;
 }
 
-textarea:focus {
+.vco-textarea:focus {
   outline: none;
 }
 
-textarea::-webkit-input-placeholder {
+.vco-textarea::-webkit-input-placeholder {
   color: $placeholderColor;
 }
 
-.subcomment-textarea-edit {
+.vco-textarea--edit {
+  @extend .vco-textarea;
   display: block;
   font-size: 14px;
   min-height: 20px;
@@ -73,12 +74,14 @@ textarea::-webkit-input-placeholder {
   padding: 5px;
 }
 
-.subreply-textarea {
+.vco-textarea--subreply {
+  @extend .vco-textarea;
   margin-top: 10px;
   padding: 5px 0 5px 10px;
 }
 
-.main-reply-textarea {
+.vco-textarea--default {
+  @extend .vco-textarea;
   display: block;
   font-size: 14px;
   min-height: 70px;
