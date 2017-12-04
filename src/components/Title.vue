@@ -23,5 +23,8 @@ export default {
 <style>
 .vco-title__heading {
   margin-top: 10px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 </style>
