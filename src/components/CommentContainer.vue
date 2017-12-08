@@ -24,6 +24,7 @@
               <CommentOption
                 :translations="translations"
                 :comment="comment"
+                :userIsAuthenticated="userContext.requestUser.isAuthenticated"
                 @comment-option-reply-click="openSubReplyTextarea(comment)"
               />
             </div>
@@ -75,7 +76,7 @@
       </div>
     </div>
     <CommentReply
-      v-if="$djangoContext.requestUser.isAuthenticated"
+      v-if="userContext.requestUser.isAuthenticated"
       :translations="translations"
       :textValue="mainReplyTextarea"
       :mainReplyLoading="mainReplyLoading"
@@ -115,6 +116,8 @@ export default {
   props: {
     translations: Object,
     httpInterfaceActions: Object,
+    entity: Object,
+    userContext: Object,
   },
   computed: {
     ...mapState({
@@ -214,8 +217,8 @@ export default {
     this.$store.registerModule('comments', newStore);
   },
   mounted() {
-    this.$store.dispatch('ADD_USER_DATA', this.$djangoContext);
-    this.$store.dispatch('ADD_PROJECT_DATA', this.$projectData);
+    this.$store.dispatch('ADD_USER_DATA', this.userContext);
+    this.$store.dispatch('ADD_PROJECT_DATA', this.entity);
     this.$store.dispatch('FETCH_COMMENTS');
   },
 };

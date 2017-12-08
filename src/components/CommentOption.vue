@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="$djangoContext.requestUser.isAuthenticated"
+    v-if="userIsAuthenticated"
     class="vco-comment-option__container"
   >
     <span
@@ -31,6 +31,7 @@ export default {
   props: {
     comment: Object,
     translations: Object,
+    userIsAuthenticated: Boolean,
   },
   methods: {
     onReplyClick() {
