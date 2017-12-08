@@ -830,9 +830,9 @@ babel-preset-jest@^21.2.0:
     babel-plugin-jest-hoist "^21.2.0"
     babel-plugin-syntax-object-rest-spread "^6.13.0"
 
-babel-preset-poi@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-poi/-/babel-preset-poi-1.1.0.tgz#92e2bd185ebd83827d7d06db1858d33d06a302e3"
+babel-preset-poi@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-poi/-/babel-preset-poi-1.1.1.tgz#e23e8313445b09a583a4fca56f9ffa5312ada103"
   dependencies:
     babel-macros "^1.2.0"
     babel-plugin-syntax-dynamic-import "^6.18.0"
@@ -842,7 +842,7 @@ babel-preset-poi@^1.1.0:
     babel-plugin-transform-react-jsx "^6.24.1"
     babel-plugin-transform-runtime "^6.23.0"
     babel-preset-env "^1.6.1"
-    babel-preset-vue "^1.2.1"
+    babel-preset-vue "^2.0.0"
     babel-runtime "^6.26.0"
 
 babel-preset-vue-app@^1.3.1:
@@ -864,6 +864,16 @@ babel-preset-vue@^1.2.1:
     babel-plugin-jsx-event-modifiers "^2.0.2"
     babel-plugin-jsx-v-model "^2.0.1"
     babel-plugin-jsx-vue-functional "^2.1.0"
+    babel-plugin-syntax-jsx "^6.18.0"
+    babel-plugin-transform-vue-jsx "^3.5.0"
+
+babel-preset-vue@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-vue/-/babel-preset-vue-2.0.0.tgz#441f7cf75836a0fa908a5df62bc243f8f9109d2c"
+  dependencies:
+    babel-helper-vue-jsx-merge-props "^2.0.2"
+    babel-plugin-jsx-event-modifiers "^2.0.2"
+    babel-plugin-jsx-v-model "^2.0.1"
     babel-plugin-syntax-jsx "^6.18.0"
     babel-plugin-transform-vue-jsx "^3.5.0"
 
@@ -4494,9 +4504,9 @@ poi-dev-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/poi-dev-utils/-/poi-dev-utils-1.0.1.tgz#c3089d1db60e9d2c56343decc6a3b9647d577c14"
 
-poi-load-config@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/poi-load-config/-/poi-load-config-1.1.2.tgz#5db24d0e2d149ada2c35369f4de21d1924365bda"
+poi-load-config@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/poi-load-config/-/poi-load-config-1.1.3.tgz#2b71d64b4f20c0f7b246709074a6e0808a2fdb03"
   dependencies:
     babel-core "^6.24.1"
     babel-load-config "^1.0.0"
@@ -4507,15 +4517,15 @@ poi-webpack-node-externals@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/poi-webpack-node-externals/-/poi-webpack-node-externals-2.0.0.tgz#3e23ae0673705f5f44b23ecd194b85c724de91fa"
 
-poi@^9.5.5:
-  version "9.5.5"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-9.5.5.tgz#a34ccc0710312beb0441d54d4435bb692b3c4023"
+poi@^9.5.8:
+  version "9.5.8"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-9.5.8.tgz#5442c3bde9bcd4d833b9cf1dea2d45eefe97acfc"
   dependencies:
     address "^1.0.1"
     autoprefixer "^7.1.2"
     babel-core "^6.24.1"
     babel-loader "^7.0.0"
-    babel-preset-poi "^1.1.0"
+    babel-preset-poi "^1.1.1"
     cac "^4.0.0"
     case-sensitive-paths-webpack-plugin "^2.0.0"
     chalk "^2.0.1"
@@ -4537,7 +4547,7 @@ poi@^9.5.5:
     opn "^5.0.0"
     parse-json-config "^0.2.0"
     poi-dev-utils "^1.0.1"
-    poi-load-config "^1.1.2"
+    poi-load-config "^1.1.3"
     poi-webpack-node-externals "^2.0.0"
     post-compile-webpack-plugin "^0.1.1"
     postcss-loader "^2.0.6"
@@ -6150,14 +6160,13 @@ vue-hot-reload-api@^2.2.0:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.2.4.tgz#683bd1d026c0d3b3c937d5875679e9a87ec6cd8f"
 
-vue-jest@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-1.2.0.tgz#4f7dafbe5288e98db36f5d86964b42231a435131"
+vue-jest@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-1.3.0.tgz#4fcfbf56eefe57f3f5e7e3674d8eca65f9f543de"
   dependencies:
     babel-core "^6.25.0"
     babel-preset-vue-app "^1.3.1"
     chalk "^2.1.0"
-    convert-source-map "^1.5.0"
     find-babel-config "^1.1.0"
     js-beautify "^1.6.14"
     node-cache "^4.1.1"
