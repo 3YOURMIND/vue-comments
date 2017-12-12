@@ -78,6 +78,7 @@ $placeholderColor: #a2a2a2;
   @extend .vco-textarea;
   margin-top: 10px;
   padding: 5px 0 5px 10px;
+  margin-left: 5px;
 }
 
 .vco-textarea--default {

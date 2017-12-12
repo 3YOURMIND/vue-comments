@@ -10,7 +10,7 @@
         />
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="min-height: 30px;">
       <div class="col-xs-12">
         <CommentEditOptionBar
           :translations="translations"

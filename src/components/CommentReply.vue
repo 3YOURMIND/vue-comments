@@ -12,7 +12,7 @@
         />
       </div>
     </div>
-    <div v-if="showCommentButton" class="row">
+    <div v-if="showCommentButton" class="row" style="min-height: 30px;">
       <div class="col-xs-12">
         <div class="vco-comment-reply__button-container">
           <div

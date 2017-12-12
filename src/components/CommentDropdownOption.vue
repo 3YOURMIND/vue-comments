@@ -18,19 +18,25 @@
     </Modal>
 
     <div v-if="showArrowIcon">
-      <i
+      <div
+        style="transform: rotate(180deg); cursor: pointer;"
         v-if="!menuActive"
         key="arrow-menu-active"
         :class="arrowClass"
         @click="toggleMenu"
       >
-        keyboard_arrow_down
-      </i>
-      <i v-else key="arrow-menu-active" :class="arrowClass" @click="toggleMenu">
-        keyboard_arrow_up
-      </i>
+        ⌃
+      </div>
+      <div
+        style="transform: translate(0px, 4px); cursor: pointer;"
+        v-else
+        key="arrow-menu-active"
+        :class="arrowClass"
+        @click="toggleMenu"
+      >
+        ⌃
+      </div>
     </div>
-
     <ul
       v-if="menuActive"
       :class="subCommentMenuClasses"
@@ -83,7 +89,6 @@ export default {
     },
     arrowClass() {
       return {
-        'material-icons': true,
         'subcomment-option': !this.editMode && this.type === 'sub',
       };
     },
@@ -158,7 +163,8 @@ export default {
 
   li {
     padding: 0;
-    margin-left: -27px;
+    margin-left: 12px;
+    margin-top: 0px;
   }
 
   li:nth-child(n + 2) {
@@ -168,13 +174,13 @@ export default {
 
 .vco-dropdown-option__menu--sub {
   @extend .vco-dropdown-option__menu;
-  transform: translate(-60px, 5px);
+  transform: translate(-76px, -10px);
   color: #2c66c4;
 }
 
 .vco-dropdown-option__menu--main {
   @extend .vco-dropdown-option__menu;
-  top: 24px;
   right: 16px;
+  transform: translate(-5px, -10px);
 }
 </style>
