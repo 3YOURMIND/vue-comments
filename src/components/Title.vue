@@ -1,5 +1,5 @@
 <template>
-  <div :class="this.titleClass" v-text="translations.title" />
+  <div :class="titleClass" v-text="translations.title" />
 </template>
 
 <script>
