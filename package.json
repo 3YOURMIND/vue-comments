@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "build": "node ./node_modules/poi/bin/cli.js build index.js",
+    "storybook": "node ./node_modules/poi/bin/cli.js --storybook --config ./storybook.poi.config.js",
     "test": "jest"
   },
   "files": [
@@ -33,7 +34,10 @@
     "jest-serializer-vue": "^0.3.0",
     "node-sass": "^4.7.2",
     "poi": "^9.6.0",
+    "poi-preset-storybook": "^0.1.2",
     "sass-loader": "^6.0.6",
+    "storybook-vue": "^3.2.16",
+    "stringify-object": "^3.2.1",
     "vue-jest": "^1.4.0",
     "vue-test-utils": "^1.0.0-beta.7"
   },
