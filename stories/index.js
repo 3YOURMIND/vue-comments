@@ -2,11 +2,11 @@ import {
   storiesOf
 } from 'storybook-vue';
 
-import VcoTitle from '../components/Title.vue';
+import VcoTitle from '../src/components/Title.vue';
 import stringifyObject from 'stringify-object';
 
 storiesOf('Title', module)
-  .add('normal title', () => {
+  .add('Title with no line', () => {
     const translationsObject = {
       title: 'Whatever',
     };
