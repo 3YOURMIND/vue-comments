@@ -4889,9 +4889,9 @@ poi-webpack-node-externals@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/poi-webpack-node-externals/-/poi-webpack-node-externals-2.0.0.tgz#3e23ae0673705f5f44b23ecd194b85c724de91fa"
 
-poi@^9.6.0:
-  version "9.6.0"
-  resolved "https://registry.yarnpkg.com/poi/-/poi-9.6.0.tgz#dd7fc3b9f94a54018ce20d9c2252aaed7c5e3c4c"
+poi@^9.6.1:
+  version "9.6.1"
+  resolved "https://registry.yarnpkg.com/poi/-/poi-9.6.1.tgz#cc6bafeb937aa25562b4e1bffb3769ebf6b463e4"
   dependencies:
     address "^1.0.1"
     autoprefixer "^7.1.2"
@@ -6776,9 +6776,9 @@ vue-template-es2015-compiler@^1.5.3, vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue-test-utils@^1.0.0-beta.7:
-  version "1.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/vue-test-utils/-/vue-test-utils-1.0.0-beta.7.tgz#d53a07b3a9aaa93b58ddec496e0796f19ee5cfd8"
+vue-test-utils@^1.0.0-beta.8:
+  version "1.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/vue-test-utils/-/vue-test-utils-1.0.0-beta.8.tgz#b4f84ce36f7ae457cdbab9ba21771f4a50d4dabd"
   dependencies:
     lodash "^4.17.4"
 
