@@ -30,21 +30,21 @@ describe('Title Module', () => {
     let wrapper = shallow(Title, {
       propsData: createProps(),
     });
-    expect(wrapper.find('div').hasClass('vco-title__heading')).toBe(true);
+    expect(wrapper.find('div').classes()).toContain('vco-title__heading');
     wrapper = shallow(Title, {
       propsData: createProps('a', true),
     });
-    expect(wrapper.find('div').hasClass('vco-title__heading')).toBe(true);
+    expect(wrapper.find('div').classes()).toContain('vco-title__heading');
   });
 
   it('test if default class is shown always', () => {
     let wrapper = shallow(Title, {
       propsData: createProps(),
     });
-    expect(wrapper.find('div').hasClass('vco-title__line')).toBe(false);
+    expect(wrapper.find('div').classes()).not.toContain('vco-title__line');
     wrapper = shallow(Title, {
       propsData: createProps('a', true),
     });
-    expect(wrapper.find('div').hasClass('vco-title__line')).toBe(true);
+    expect(wrapper.find('div').classes()).toContain('vco-title__line');
   });
 });
