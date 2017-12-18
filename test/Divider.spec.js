@@ -4,8 +4,8 @@ import {
 
 import Divider from '../src/components/Divider.vue';
 
-describe('modal body module', () => {
-  it('test default body text', () => {
+describe('divider module', () => {
+  it('test divider', () => {
     const wrapper = shallow(Divider);
     expect(wrapper.is('div')).toBe(true);
   });
