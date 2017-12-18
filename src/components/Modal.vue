@@ -3,7 +3,7 @@
     <div class="vco-modal__mask">
       <div class="vco-modal__wrapper">
         <div class="vco-modal__container">
-          <div class="vco-modal__header">
+          <div class="vco-modal__header" data-test="vco-modal-header">
             <slot name="header">default header</slot>
           </div>
 
