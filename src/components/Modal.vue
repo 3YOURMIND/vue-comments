@@ -7,14 +7,18 @@
             <slot name="header">default header</slot>
           </div>
 
-          <div class="vco-modal__body">
+          <div class="vco-modal__body" data-test="vco-modal-body">
             <slot name="body">default body</slot>
           </div>
 
-          <div class="vco-modal__footer">
+          <div class="vco-modal__footer" data-test="vco-modal-footer">
             <slot name="footer">
               default footer
-              <button class="vco-modal__default-button" @click="closeModal">
+              <button
+                class="vco-modal__default-button"
+                data-test="close"
+                @click="closeModal"
+              >
                 OK
               </button>
             </slot>

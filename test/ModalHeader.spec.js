@@ -4,7 +4,7 @@ import {
 
 import Modal from '../src/components/Modal.vue';
 
-describe('Modal Module', () => {
+describe('modal header module', () => {
   it('test default header text', () => {
     const wrapper = shallow(Modal);
     const modalHeader = wrapper.find('[data-test="vco-modal-header"]');
