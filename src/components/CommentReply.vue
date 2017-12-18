@@ -2,7 +2,7 @@
   <div>
     <div v-if="showTextarea" class="row">
       <div class="col-xs-12">
-        <B3Textarea
+        <VcoTextarea
           :value="textValue"
           :emitInputEvents="true"
           :type="type"
@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import B3Textarea from './Textarea.vue';
+import VcoTextarea from './Textarea.vue';
 
 export default {
   name: 'CommentReply',
   components: {
-    B3Textarea,
+    VcoTextarea,
   },
   props: {
     textValue: String,
