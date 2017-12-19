@@ -12,5 +12,5 @@ branches:
 install:
 - yarn install
 script:
-- yarn run test
+- yarn run test --verbose
 - yarn run build
