@@ -1,8 +1,12 @@
 <template>
   <div class="vco-comment-info__container">
     <span class="vco-comment-info__username">
-      <b v-text="comment.user.name" />
-      <span v-if="comment.user.service" v-html="serviceHtmlRepresentation" />
+      <b data-test="vco-comment-info-username" v-text="comment.user.name" />
+      <span
+        v-if="comment.user.service"
+        data-test="vco-comment-info-service"
+        v-html="serviceHtmlRepresentation"
+      />
     </span>
     <span class="vco-comment-info__date" v-text="createdDateRepresentation" />
     <span
