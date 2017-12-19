@@ -3,6 +3,7 @@
     <div class="vco-no-content__text-container">
       <span
         class="vco-no-content__text"
+        data-test="vco-no-content-text"
         v-text="translations.noCommentWarning"
       />
     </div>
