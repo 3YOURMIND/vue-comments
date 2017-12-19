@@ -3,7 +3,7 @@ import { shallow } from 'vue-test-utils';
 import CommentNoContent from '../src/components/CommentNoContent.vue';
 
 describe('comment no content module', () => {
-  it('test', () => {
+  it('test if text is given right', () => {
     const wrapper = shallow(CommentNoContent, {
       propsData: {
         translations: {
