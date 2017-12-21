@@ -2,27 +2,44 @@ import { shallow } from 'vue-test-utils';
 
 import CommentInfo from '../src/components/CommentInfo.vue';
 
-const createComment = ({ username = 'defaultUsername', service = null }) => {
+const baseTime = 1513879000;
+
+const createComment = ({
+  username = 'defaultUsername',
+  service = null,
+  createdHoursAgo = 7,
+  editedHoursAgo = null,
+}) => {
   return {
     user: {
       name: username,
       service,
     },
-    editedPrettyDate: 1513719024,
-    createdPrettyDate: 1513719024,
+    editedPrettyDate: editedHoursAgo
+      ? 1513879000 - 60 * 60 * editedHoursAgo
+      : null,
+    createdPrettyDate: 1513879000 - 60 * 60 * createdHoursAgo,
   };
 };
 
 const createTranslation = ({}) => {
   return {
-    commentInfoUserServiceInformation: comment => {
+    commentInfoUserServiceInformation: (comment) => {
       return `from service <b>${comment.user.service}</b>`;
     },
-    createdDate: comment => {
-      return 'before 5 hours';
+    createdDate: (comment) => {
+      const hourDifference = parseInt(
+        (baseTime - comment.createdPrettyDate) / 3600,
+        10,
+      );
+      return `${hourDifference} hours ago`;
     },
-    editedDate: comment => {
-      return 'before 2 hours';
+    editedDate: (comment) => {
+      const hourDifference = parseInt(
+        (baseTime - comment.editedPrettyDate) / 3600,
+        10,
+      );
+      return `${hourDifference} hours ago`;
     },
   };
 };
@@ -66,5 +83,54 @@ describe('comment info module', () => {
     expect(serviceContainer.text()).toBe(
       'from service 3YOURMIND Printing Service',
     );
+  });
+
+  it('test created date', () => {
+    let wrapper = shallow(CommentInfo, {
+      propsData: {
+        comment: createComment({ createdHoursAgo: 8 }),
+        translations: createTranslation({}),
+      },
+    });
+    let createdContainer = wrapper.find(
+      '[data-test="vco-comment-info-created"]',
+    );
+    expect(createdContainer.text()).toContain('8');
+    wrapper.setProps({
+      comment: createComment({ createdHoursAgo: 3 }),
+    });
+    createdContainer = wrapper.find('[data-test="vco-comment-info-created"]');
+    expect(createdContainer.text()).toContain('3');
+  });
+
+  it('test if edited time difference is not visible', () => {
+    let wrapper = shallow(CommentInfo, {
+      propsData: {
+        comment: createComment({ editedHoursAgo: null }),
+        translations: createTranslation({}),
+      },
+    });
+    let createdContainer = wrapper.find(
+      '[data-test="vco-comment-info-edited"]',
+    );
+    expect(createdContainer.exists()).toBeFalsy();
+  });
+
+  it('test given edited date', () => {
+    let wrapper = shallow(CommentInfo, {
+      propsData: {
+        comment: createComment({ editedHoursAgo: 6 }),
+        translations: createTranslation({}),
+      },
+    });
+    let createdContainer = wrapper.find(
+      '[data-test="vco-comment-info-edited"]',
+    );
+    expect(createdContainer.text()).toContain('6');
+    wrapper.setProps({
+      comment: createComment({ editedHoursAgo: 3 }),
+    });
+    createdContainer = wrapper.find('[data-test="vco-comment-info-edited"]');
+    expect(createdContainer.text()).toContain('3');
   });
 });
