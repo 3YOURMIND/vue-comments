@@ -2,6 +2,7 @@
   <div class="vco-comment-edit-option-bar__container">
     <div
       class="vco-button--black"
+      data-test="vco-comment-edit-option-bar-cancel"
       tabindex="0"
       @click="cancelEditText"
       @keyup.enter="cancelEditText"
@@ -10,6 +11,7 @@
     </div>
     <div
       tabindex="0"
+      data-test="vco-comment-edit-option-bar-save"
       :class="loadingButtonClass"
       @click="saveEditText"
       @keyup.enter="saveEditText"
