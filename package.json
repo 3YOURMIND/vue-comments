@@ -26,6 +26,9 @@
     "test": "jest",
     "prettier": "prettier \"*/**/*.js\" --ignore-path ./.prettierignore --write && git add . && git status"
   },
+  "pre-commit": [
+    "prettier"
+  ],
   "files": [
     "/dist"
   ],
