@@ -1,6 +1,4 @@
-import {
-  storiesOf
-} from 'storybook-vue';
+import { storiesOf } from 'storybook-vue';
 import stringifyObject from 'stringify-object';
 import VcoTitle from '../src/components/Title.vue';
 import VcoTextarea from '../src/components/Textarea.vue';

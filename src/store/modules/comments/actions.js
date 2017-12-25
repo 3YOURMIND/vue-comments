@@ -1,7 +1,8 @@
 let localHttpInstance = null;
 
 const FETCH_COMMENTS = ({ commit, state }) => {
-  localHttpInstance.fetchComments(state.project.id)
+  localHttpInstance
+    .fetchComments(state.project.id)
     .then((response) => {
       const mapped = [];
       response.data.value.forEach((rawComment) => {
@@ -32,7 +33,8 @@ const ADD_COMMENT = ({ commit, state }) => {
     text: state.mainReplyText,
     id: null,
   };
-  localHttpInstance.addComment(state.project.id, null, mutationPayload.text)
+  localHttpInstance
+    .addComment(state.project.id, null, mutationPayload.text)
     .then((response) => {
       mutationPayload.id = response.data.id;
       commit('ADD_COMMENT', mutationPayload);
@@ -50,10 +52,15 @@ const ADD_SUB_COMMENT = ({ commit, state }, payload) => {
     id: null,
   };
   const parentComment = state.comments.find(
-    stateComment => stateComment.id === mutationPayload.parentId,
+    (stateComment) => stateComment.id === mutationPayload.parentId,
   );
   parentComment.textarea.loading = true;
-  localHttpInstance.addComment(state.project.id, mutationPayload.parentId, mutationPayload.text)
+  localHttpInstance
+    .addComment(
+      state.project.id,
+      mutationPayload.parentId,
+      mutationPayload.text,
+    )
     .then((response) => {
       mutationPayload.id = response.data.id;
       commit('ADD_SUB_COMMENT', mutationPayload);
@@ -65,7 +72,8 @@ const DELETE_COMMENT = ({ commit, state }, payload) => {
   const mutationPayload = {
     id: payload.id,
   };
-  localHttpInstance.deleteComment(state.project.id, mutationPayload.id)
+  localHttpInstance
+    .deleteComment(state.project.id, mutationPayload.id)
     .then(() => {
       commit('DELETE_COMMENT', mutationPayload);
     });
@@ -100,10 +108,11 @@ const SAVE_EDIT_TEXT = ({ commit, state }, payload) => {
     return;
   }
   const editComment = state.comments.find(
-    stateComment => stateComment.id === payload.id,
+    (stateComment) => stateComment.id === payload.id,
   );
   editComment.editLoading = true;
-  localHttpInstance.updateComment(state.project.id, payload.id, payload.text)
+  localHttpInstance
+    .updateComment(state.project.id, payload.id, payload.text)
     .then(() => {
       commit('SAVE_EDIT_TEXT', payload);
       editComment.editLoading = false;

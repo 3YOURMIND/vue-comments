@@ -18,10 +18,14 @@ describe('comment dropwdown option module', () => {
         },
       },
     });
-    const openMenuButton = wrapper.find('[data-test="vco-comment-dropdown-option-open-menu"]');
+    const openMenuButton = wrapper.find(
+      '[data-test="vco-comment-dropdown-option-open-menu"]',
+    );
     expect(openMenuButton.exists()).toBe(true);
     openMenuButton.trigger('click');
-    const closeMenuButton = wrapper.find('[data-test="vco-comment-dropdown-option-close-menu"]');
+    const closeMenuButton = wrapper.find(
+      '[data-test="vco-comment-dropdown-option-close-menu"]',
+    );
     expect(closeMenuButton.exists()).toBe(true);
   });
 });
