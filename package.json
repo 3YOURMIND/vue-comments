@@ -29,12 +29,12 @@
     "/dist"
   ],
   "devDependencies": {
-    "babel-jest": "^22.0.0",
-    "jest": "^22.0.0",
+    "babel-jest": "^22.0.4",
+    "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
     "node-sass": "^4.7.2",
-    "poi": "^9.6.1",
-    "poi-preset-storybook": "^0.1.2",
+    "poi": "^9.6.4",
+    "poi-preset-storybook": "^0.1.3",
     "sass-loader": "^6.0.6",
     "storybook-vue": "^3.2.16",
     "stringify-object": "^3.2.1",
@@ -46,7 +46,7 @@
     "vuex": "^3.0.1"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">= 8"
   },
   "jest": {
     "moduleFileExtensions": [
