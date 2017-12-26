@@ -43,6 +43,7 @@
       v-if="menuActive"
       :class="subCommentMenuClasses"
       v-on-clickaway="toggleAway"
+      data-test="vco-comment-dropdown-option-menu"
     >
       <li @click="editComment">
         <span
