@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col-xs-12">
-        <B3Title
+        <VcoTitle
           :showLine="true"
           :translations="translations"
         />
@@ -93,7 +93,7 @@ import store from '../store/modules/comments/index';
 import CommentInfo from './CommentInfo.vue';
 import CommentNoContent from './CommentNoContent.vue';
 import CommentOption from './CommentOption.vue';
-import B3Title from './Title.vue';
+import VcoTitle from './Title.vue';
 import Divider from './Divider.vue';
 import CommentEditArea from './CommentEditArea.vue';
 import CommentReply from './CommentReply.vue';
@@ -104,7 +104,7 @@ export default {
   name: 'CommentContainer',
   components: {
     CommentInfo,
-    B3Title,
+    VcoTitle,
     Divider,
     CommentNoContent,
     CommentOption,
