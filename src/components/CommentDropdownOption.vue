@@ -19,6 +19,7 @@
 
     <div v-if="showArrowIcon">
       <div
+        data-test="vco-comment-dropdown-option-open-menu"
         style="transform: rotate(180deg); cursor: pointer;"
         v-if="!menuActive"
         key="arrow-menu-active"
@@ -28,6 +29,7 @@
         ⌃
       </div>
       <div
+        data-test="vco-comment-dropdown-option-close-menu"
         style="transform: translate(0px, 4px); cursor: pointer;"
         v-else
         key="arrow-menu-active"
@@ -41,6 +43,7 @@
       v-if="menuActive"
       :class="subCommentMenuClasses"
       v-on-clickaway="toggleAway"
+      data-test="vco-comment-dropdown-option-menu"
     >
       <li @click="editComment">
         <span

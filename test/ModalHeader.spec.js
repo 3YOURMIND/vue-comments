@@ -1,6 +1,4 @@
-import {
-  shallow
-} from 'vue-test-utils';
+import { shallow } from 'vue-test-utils';
 
 import Modal from '../src/components/Modal.vue';
 

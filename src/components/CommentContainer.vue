@@ -213,8 +213,11 @@ export default {
     },
   },
   created() {
-    const newStore = store(this.httpInterfaceActions);
-    this.$store.registerModule('comments', newStore);
+    const storeAlreadyAttached = 'comments' in this.$store._modules.root._children;
+    if (!storeAlreadyAttached) {
+      const newStore = store(this.httpInterfaceActions);
+      this.$store.registerModule('comments', newStore);
+    }
   },
   mounted() {
     this.$store.dispatch('ADD_USER_DATA', this.userContext);

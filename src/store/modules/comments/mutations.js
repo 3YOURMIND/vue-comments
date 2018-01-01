@@ -44,7 +44,7 @@ const ADD_SUB_COMMENT = (state, payload) => {
     editLoading: false,
   };
   const existingComment = state.comments.find(
-    stateComment => stateComment.id === payload.parentId,
+    (stateComment) => stateComment.id === payload.parentId,
   );
   existingComment.textarea.text = '';
   existingComment.textarea.show = false;
@@ -53,7 +53,7 @@ const ADD_SUB_COMMENT = (state, payload) => {
 
 const UPDATE_SUBREPLY_TEXT = (state, obj) => {
   const commentToChange = state.comments.find(
-    comment => comment.id === obj.id,
+    (comment) => comment.id === obj.id,
   );
   if (!commentToChange) {
     return;
@@ -67,29 +67,29 @@ const UPDATE_MAIN_TEXTAREA = (state, payload) => {
 
 const SHOW_SUBREPLY_TEXTAREA = (state, payload) => {
   state.comments.find(
-    comment => comment.id === payload.id,
+    (comment) => comment.id === payload.id,
   ).textarea.show = true;
 };
 
 const DELETE_COMMENT = (state, payload) => {
   const indexToDelete = state.comments.findIndex(
-    comment => comment.id === payload.id,
+    (comment) => comment.id === payload.id,
   );
   state.comments.splice(indexToDelete, 1);
 };
 
 const ACTIVATE_EDIT_MODE = (state, payload) => {
-  state.comments.find(comment => comment.id === payload.id).editMode = true;
+  state.comments.find((comment) => comment.id === payload.id).editMode = true;
 };
 
 const UPDATE_EDIT_TEXT = (state, payload) => {
-  state.comments.find(comment => comment.id === payload.id).editText =
+  state.comments.find((comment) => comment.id === payload.id).editText =
     payload.text;
 };
 
 const CANCEL_EDIT = (state, payload) => {
   const filteredComment = state.comments.find(
-    comment => comment.id === payload.id,
+    (comment) => comment.id === payload.id,
   );
   filteredComment.editText = filteredComment.text;
   filteredComment.editMode = false;
@@ -97,7 +97,7 @@ const CANCEL_EDIT = (state, payload) => {
 
 const SAVE_EDIT_TEXT = (state, payload) => {
   const filteredComment = state.comments.find(
-    comment => comment.id === payload.id,
+    (comment) => comment.id === payload.id,
   );
   filteredComment.text = payload.text;
   filteredComment.editMode = false;

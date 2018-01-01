@@ -8,9 +8,14 @@
         v-html="serviceHtmlRepresentation"
       />
     </span>
-    <span class="vco-comment-info__date" v-text="createdDateRepresentation" />
+    <span
+      data-test="vco-comment-info-created"
+      class="vco-comment-info__date"
+      v-text="createdDateRepresentation"
+    />
     <span
       v-if="comment.editedPrettyDate"
+      data-test="vco-comment-info-edited"
       class="vco-comment-info__date"
       v-text="editedDateRepresentation"
     />
