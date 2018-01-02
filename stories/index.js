@@ -3,6 +3,35 @@ import stringifyObject from 'stringify-object';
 import VcoTitle from '../src/components/Title.vue';
 import VcoTextarea from '../src/components/Textarea.vue';
 import Modal from '../src/components/Modal.vue';
+import Divider from '../src/components/Divider.vue';
+
+storiesOf('Divider', module)
+  .add('With long texts', () => {
+    return {
+      components: {
+        Divider,
+      },
+      template: `
+        <div>
+          <p>Lorem ipsum dolor sit amet, eos augue delectus constituam ei. Dicta liber ad usu, ponderum eleifend adolescens eu sed. Eum no tibique adipisci contentiones. Mea tamquam tibique eu. Pertinacia mnesarchum ne vix, quis copiosae liberavisse ad sed, vel ut aeterno patrioque suscipiantur. Ex vix mandamus scripserit, quo ferri mucius ex.</p>
+          <Divider/>
+          <p>Lorem ipsum dolor sit amet, eos augue delectus constituam ei. Dicta liber ad usu, ponderum eleifend adolescens eu sed. Eum no tibique adipisci contentiones. Mea tamquam tibique eu. Pertinacia mnesarchum ne vix, quis copiosae liberavisse ad sed, vel ut aeterno patrioque suscipiantur. Ex vix mandamus scripserit, quo ferri mucius ex.</p>
+        </div>`,
+    };
+  })
+  .add('With div boxes', () => {
+    return {
+      components: {
+        Divider,
+      },
+      template: `
+        <div>
+          <div style="width: 100%; height: 120px; background-color: blue;"></div>
+          <Divider/>
+          <div style="width: 100%; height: 73px; background-color: red;"></div>
+        </div>`,
+    };
+  });
 
 storiesOf('Modal', module)
   .add('Slots provided', () => {
