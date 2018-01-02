@@ -1,6 +1,6 @@
 {
   "name": "@3yourmind/vue-comments",
-  "version": "0.0.1-beta.4",
+  "version": "0.0.1-beta.5",
   "description":
     "A Vue.js based commenting system to use in every Vue.js application",
   "main": "dist/VueComments.js",
@@ -47,7 +47,7 @@
     "vuex": "^3.0.1"
   },
   "engines": {
-    "node": ">= 8"
+    "node": ">= 6"
   },
   "jest": {
     "moduleFileExtensions": ["js", "json", "vue"],
