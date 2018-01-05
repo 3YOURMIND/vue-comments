@@ -1,22 +1,11 @@
 <template>
   <div class="vco-dropdown-option__container">
-    <Modal v-if="showModal" @close="hideModal">
-      <h4 slot="header" v-text="translations.deleteComments" />
-      <div slot="body" v-text="translations.areYouSureDeleteComment" />
-      <div slot="footer">
-        <div
-          class="vco-button--black"
-          @click="hideModal"
-          v-text="translations.cancel"
-        />
-        <div
-          class="vco-button"
-          @click="deleteComment"
-          v-text="translations.delete"
-        />
-      </div>
-    </Modal>
-
+    <DeleteModal
+      v-if="showModal"
+      :translations="translations"
+      @hideModal="hideModal"
+      @deleteComment="deleteComment"
+    />
     <div v-if="showArrowIcon">
       <div
         data-test="vco-comment-dropdown-option-open-menu"
@@ -63,12 +52,12 @@
 
 <script>
 import { mixin as VueClickaway } from 'vue-clickaway';
-import Modal from './Modal.vue';
+import DeleteModal from './DeleteModal';
 
 export default {
   name: 'CommentDropdownOption',
   components: {
-    Modal,
+    DeleteModal,
   },
   mixins: [VueClickaway],
   props: {
