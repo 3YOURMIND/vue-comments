@@ -139,7 +139,7 @@ export default {
         parentComments.forEach((parentComment) => {
           const copy = Object.assign({}, parentComment);
           copy.subComments = mappedComments.filter(
-            x => x.parent === parentComment.id,
+            (x) => x.parent === parentComment.id,
           );
           result.push(copy);
         });
@@ -213,7 +213,8 @@ export default {
     },
   },
   created() {
-    const storeAlreadyAttached = 'comments' in this.$store._modules.root._children;
+    const storeAlreadyAttached =
+      'comments' in this.$store._modules.root._children;
     if (!storeAlreadyAttached) {
       const newStore = store(this.httpInterfaceActions);
       this.$store.registerModule('comments', newStore);

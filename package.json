@@ -23,24 +23,24 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md,vue}": ["prettier --write", "git add"]
   },
   "files": ["/dist"],
   "devDependencies": {
-    "babel-jest": "^22.0.4",
+    "babel-jest": "^22.0.6",
     "husky": "^0.14.3",
-    "jest": "^22.0.4",
+    "jest": "^22.0.6",
     "jest-serializer-vue": "^0.3.0",
     "lint-staged": "^6.0.0",
     "node-sass": "^4.7.2",
-    "poi": "^9.6.9",
+    "poi": "^9.6.12",
     "poi-preset-storybook": "^0.1.3",
-    "prettier": "^1.9.2",
+    "prettier": "^1.10.2",
     "sass-loader": "^6.0.6",
     "storybook-vue": "^3.2.16",
     "stringify-object": "^3.2.1",
     "vue-jest": "^1.4.0",
-    "vue-test-utils": "^1.0.0-beta.9"
+    "vue-test-utils": "^1.0.0-beta.11"
   },
   "dependencies": {
     "vue-clickaway": "^2.1.0",

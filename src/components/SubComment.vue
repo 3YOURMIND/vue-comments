@@ -58,7 +58,7 @@ export default {
     cancelText() {
       this.$emit('cancelText');
     },
-  }
+  },
 };
 </script>
 
