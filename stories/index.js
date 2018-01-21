@@ -6,23 +6,25 @@ import Modal from '../src/components/Modal.vue';
 import Divider from '../src/components/Divider.vue';
 import CommentDropdownOption from '../src/components/CommentDropdownOption';
 
-storiesOf('CommentDropdownOption', module).add('awddaw', () => {
-  const translationsObject = {
-    edit: 'Edit',
-    delete: 'Delete',
-    deleteComments: 'Delete Comment',
-    areYouSureDeleteComment:
-      'Are you sure that you want to delete this comment?',
-    cancel: 'Cancel',
-    delete: 'Delete',
-  };
-  const translation = stringifyObject(translationsObject);
+storiesOf('CommentDropdownOption', module).add(
+  'Simple version of dropdown option',
+  () => {
+    const translationsObject = {
+      edit: 'Edit',
+      delete: 'Delete',
+      deleteComments: 'Delete Comment',
+      areYouSureDeleteComment:
+        'Are you sure that you want to delete this comment?',
+      cancel: 'Cancel',
+      delete: 'Delete',
+    };
+    const translation = stringifyObject(translationsObject);
 
-  return {
-    components: {
-      CommentDropdownOption,
-    },
-    template: `
+    return {
+      components: {
+        CommentDropdownOption,
+      },
+      template: `
         <div>
           <CommentDropdownOption
             :id="'1241'"
@@ -32,8 +34,9 @@ storiesOf('CommentDropdownOption', module).add('awddaw', () => {
           />
         </div>
       `,
-  };
-});
+    };
+  },
+);
 
 storiesOf('Divider', module)
   .add('With long texts', () => {
