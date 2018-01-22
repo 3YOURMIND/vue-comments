@@ -5,6 +5,7 @@ import VcoTextarea from '../src/components/Textarea.vue';
 import Modal from '../src/components/Modal.vue';
 import Divider from '../src/components/Divider.vue';
 import CommentDropdownOption from '../src/components/CommentDropdownOption';
+import CommentEditOptionBar from '../src/components/CommentEditOptionBar';
 
 storiesOf('CommentDropdownOption', module).add(
   'Simple version of dropdown option',
@@ -37,6 +38,61 @@ storiesOf('CommentDropdownOption', module).add(
     };
   },
 );
+
+const createCommentEditOptionBarProps = ({ editLoading = false }) => {
+  const translationsObject = {
+    save: 'Save',
+    cancel: 'Cancel',
+  };
+  const translations = stringifyObject(translationsObject);
+
+  const commentObject = {
+    editLoading,
+  };
+  const comment = stringifyObject(commentObject);
+  return {
+    translations,
+    comment,
+  };
+};
+
+storiesOf('CommentEditOptionBar', module)
+  .add('edit loading enabled', () => {
+    const { translations, comment } = createCommentEditOptionBarProps({
+      editLoading: true,
+    });
+    return {
+      components: {
+        CommentEditOptionBar,
+      },
+      template: `
+          <div>
+            <CommentEditOptionBar
+              :translations="${translations}"
+              :comment="${comment}"
+            />
+          </div>
+        `,
+    };
+  })
+  .add('edit loading disabled', () => {
+    const { translations, comment } = createCommentEditOptionBarProps({
+      editLoading: false,
+    });
+    return {
+      components: {
+        CommentEditOptionBar,
+      },
+      template: `
+          <div>
+            <CommentEditOptionBar
+              :translations="${translations}"
+              :comment="${comment}"
+            />
+          </div>
+        `,
+    };
+  });
 
 storiesOf('Divider', module)
   .add('With long texts', () => {
