@@ -1,4 +1,6 @@
 import { storiesOf } from 'storybook-vue';
+import Vue from 'vue';
+import Vuex from 'vuex';
 import stringifyObject from 'stringify-object';
 import VcoTitle from '../src/components/Title.vue';
 import VcoTextarea from '../src/components/Textarea.vue';
@@ -6,6 +8,84 @@ import Modal from '../src/components/Modal.vue';
 import Divider from '../src/components/Divider.vue';
 import CommentDropdownOption from '../src/components/CommentDropdownOption';
 import CommentEditOptionBar from '../src/components/CommentEditOptionBar';
+import CommentContainer from '../src/components/CommentContainer';
+
+Vue.use(Vuex);
+
+storiesOf('CommentContainer', module).add(
+  'Default version of comment container',
+  () => {
+    const translationsObject = {
+      title: 'Comments',
+      noCommentWarning: 'This Project has no comments',
+      commentInfoUserServiceInformation: (comment) => ` from <b>${service}</b>`,
+      createdDate: (comment) => comment.createdPrettyDate,
+      editedDate: (comment) => `(edited ${comment.editedPrettyDate})`,
+      reply: 'Reply',
+      edit: 'Edit',
+      delete: 'Delete',
+      deleteComments: 'Delete Comments',
+      areYouSureDeleteComment: 'Are you sure you want to delete this comment?',
+      cancel: 'Cancel',
+      save: 'Save',
+      leaveAComment: 'Leave a comment',
+      comment: 'Comment',
+    };
+    const translations = stringifyObject(translationsObject);
+
+    const httpInterfaceActionsObject = {
+      fetchComments: (projectId) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({ value: [] });
+          }, 250);
+        });
+      },
+      addComment: (projectId, parentId, text) => {
+        return null;
+      },
+      deleteComment: (projectId, commentId) => {
+        return null;
+      },
+      updateComment: (projectId, id, text) => {
+        return null;
+      },
+    };
+    const httpInterfaceActions = stringifyObject(httpInterfaceActionsObject);
+
+    const entityObject = {
+      id: 24489,
+    };
+    const entity = stringifyObject(entityObject);
+
+    const userContextObject = {
+      requestUser: {
+        email: 'test@gmail.com',
+        isAuthenticated: true,
+        userId: 1923,
+        userProfile: 'test@gmail.com',
+      },
+    };
+    const userContext = stringifyObject(userContextObject);
+
+    return {
+      components: {
+        CommentContainer,
+      },
+      template: `
+      <div>
+        <CommentContainer
+          :translations="${translations}"
+          :httpInterfaceActions="${httpInterfaceActions}"
+          :entity="${entity}"
+          :userContext="${userContext}"
+        />
+      </div>
+    `,
+      store: new Vuex.Store({}),
+    };
+  },
+);
 
 storiesOf('CommentDropdownOption', module).add(
   'Simple version of dropdown option',
